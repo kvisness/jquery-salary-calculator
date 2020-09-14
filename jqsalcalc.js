@@ -30,44 +30,53 @@ const table = $(`
     //per class video, this code only runs the actual delete button once
     $("body").on("click", ".deleteEmployee", deleteRow); 
 
-function handleEmployeeButton(event){
-    //should fire on the click of 'Submit'
-    //button up in the form
+    let totalAnnualSalaries = 0;
 
-    //grab Firstname, Lastname, ID, Title, Annual Salary, Delete and store there own const.
-    const firName = $('#firstNameInput').val();
-    const lasName = $('#lastNameInput').val();
-    const idIn = $('#idInput').val();
-    const titlIn = $('#titleInput').val();
-    const annSalIn = $('#annualSalaryInput').val();
-    const annSalInAsANumber = Number(annSalIn);
-    console.log(firName);
-    console.log(lasName);
-    console.log(idIn);
-    console.log(titlIn);
-    console.log(annSalIn);
-    console.log(annSalInAsANumber);;
+function handleEmployeeButton(event) {
+  //should fire on the click of 'Submit'
+  //button up in the form
 
-    //create rows
-    const elem = $(`
+  //grab Firstname, Lastname, ID, Title, Annual Salary, Delete and store there own const.
+  const firName = $("#firstNameInput").val();
+  $("#firstNameInput").val(""); //clears input after button click
+  const lasName = $("#lastNameInput").val();
+  $("#lastNameInput").val(""); //clears input after button click
+  const idIn = $("#idInput").val();
+  $("#idInput").val(""); //clears input after button click
+  const titlIn = $("#titleInput").val();
+  $("#titleInput").val(""); //clears input after button click
+  const annSalIn = $("#annualSalaryInput").val();
+  $("#annualSalaryInput").val(""); //clears input after button click
+  console.log(firName);
+  console.log(lasName);
+  console.log(idIn);
+  console.log(titlIn);
+  console.log(annSalIn);
+
+  //create rows
+  const elem = $(`
     <tr>
         <td>${firName}</td>
         <td>${lasName}</td>
         <td>${idIn}</td>
         <td>${titlIn}</td>
-        <td>${annSalInAsANumber}</td>
+        <td>${annSalIn}</td>
         <td><button class="deleteEmployee">Delete</button></td>
     </tr>    
     `);
 
-    //add rows to table 
-    $("tbody").append(elem);       
+  //add rows to table
+  $("tbody").append(elem);
 };
 function deleteRow(event){
     console.log('in deleteRow');
     const deleteButtonRow = $(event.target);//grab button that was clicked
     const targetRow = deleteButtonRow.closest('tr');//find grandparent
     targetRow.remove();
+    //could also use all this in one line per video notes as
+    //  $(event.target).closest('tr).remove
+    // or
+    //  $(event.target).parent().parent().remove();
 };
 }
 $(document).ready(setup);
