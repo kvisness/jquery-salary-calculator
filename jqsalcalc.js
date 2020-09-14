@@ -52,11 +52,6 @@ function handleEmployeeButton(event) {
   const annSalIn = $("#annualSalaryInput").val();
   console.log("show annSalIn");
   $("#annualSalaryInput").val(""); //clears input after button click
-  console.log(firName);
-  console.log(lasName);
-  console.log(idIn);
-  console.log(titlIn);
-  console.log(annSalIn);
 
   //create rows
   const elem = $(`
