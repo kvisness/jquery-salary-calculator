@@ -23,6 +23,7 @@ const table = $(`
         <tbody>
         </tbody>
     </table>
+    <p id='Salary-Total'>0 Total Salaries</p>
     `);
     $('body').append(table);
     //set up click handlers
@@ -52,6 +53,11 @@ function handleEmployeeButton(event) {
   const annSalIn = $("#annualSalaryInput").val();
   console.log("show annSalIn");
   $("#annualSalaryInput").val(""); //clears input after button click
+  console.log(firName);
+  console.log(lasName);
+  console.log(idIn);
+  console.log(titlIn);
+  console.log(annSalIn);
 
   //create rows
   const elem = $(`
@@ -64,9 +70,11 @@ function handleEmployeeButton(event) {
         <td><button class="deleteEmployee">Delete</button></td>
     </tr>    
     `);
-
   //add rows to table
   $("tbody").append(elem);
+  //make calculation of annual salaries, had to add a p tag in the table.
+  totalAnnualSalaries += Number(annSalIn);
+  $("#Salary-Total").text(`$ ${totalAnnualSalaries} Total Salaries`);
 };
 function deleteRow(event){
     console.log('in deleteRow');
