@@ -75,7 +75,8 @@ function handleEmployeeButton(event) {
   //make calculation of annual salaries, had to add a p tag in the table.
   totalAnnualSalaries += Number(annSalIn);
   $("#Salary-Total").text(`$ ${totalAnnualSalaries} Total Salaries`);
-};
+};//********how do we add the thousand separator??*******
+
 function deleteRow(event){
     console.log('in deleteRow');
     const deleteButtonRow = $(event.target);//grab button that was clicked
