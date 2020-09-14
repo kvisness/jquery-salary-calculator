@@ -27,8 +27,9 @@ const table = $(`
     $('body').append(table);
     //set up click handlers
     $('#addEmployee').on("click", handleEmployeeButton);
+    //per class video, this code only runs the actual delete button once
+    $("body").on("click", ".deleteEmployee", deleteRow); 
 
-}
 function handleEmployeeButton(event){
     //should fire on the click of 'Submit'
     //button up in the form
@@ -59,8 +60,14 @@ function handleEmployeeButton(event){
     </tr>    
     `);
 
-    //add rows to table and be the most specific as possible per video
-    //
-    $("tbody").append(elem);
+    //add rows to table 
+    $("tbody").append(elem);       
 };
-$(document).ready(setup);//set up jquery and create function
+function deleteRow(event){
+    console.log('in deleteRow');
+    const deleteButtonRow = $(event.target);//grab button that was clicked
+    const targetRow = deleteButtonRow.closest('tr');//find grandparent
+    targetRow.remove();
+};
+}
+$(document).ready(setup);
