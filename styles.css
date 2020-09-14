@@ -1,10 +1,28 @@
 body {
-padding: 20px;
-width: 100%;
+  color: orangered;
+  background-color: slateblue;
+  padding: 0px 20px 20px 20px;
 }
-h1{
+h1 {
+  text-align: center;
+  border-bottom: 1px solid white;
+  color: #db8553;
+}
+#SalaryTable {
+  text-align: -internal-center;
+  width: 100%;
+  margin-top: 5px;
+  background-color: springgreen;
+}
+td{
+    padding: 10px;
     text-align: center;
+    border-bottom: 1px solid gray;
 }
-input{
-    
+th{
+    background-color: paleturquoise;
+    padding: 10px;
+}
+tr:last-child td{
+    border-bottom: 0px;
 }
