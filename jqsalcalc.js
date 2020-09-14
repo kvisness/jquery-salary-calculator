@@ -30,7 +30,7 @@ const table = $(`
     //per class video, this code only runs the actual delete button once
     $("body").on("click", ".deleteEmployee", deleteRow); 
 
-    let totalAnnualSalaries = 0;
+let totalAnnualSalaries = 0;
 
 function handleEmployeeButton(event) {
   //should fire on the click of 'Submit'
@@ -38,14 +38,19 @@ function handleEmployeeButton(event) {
 
   //grab Firstname, Lastname, ID, Title, Annual Salary, Delete and store there own const.
   const firName = $("#firstNameInput").val();
+  console.log('show first name');
   $("#firstNameInput").val(""); //clears input after button click
   const lasName = $("#lastNameInput").val();
+  console.log("show last name");
   $("#lastNameInput").val(""); //clears input after button click
   const idIn = $("#idInput").val();
+  console.log("show idIn");
   $("#idInput").val(""); //clears input after button click
   const titlIn = $("#titleInput").val();
+  console.log("show titlIn");
   $("#titleInput").val(""); //clears input after button click
   const annSalIn = $("#annualSalaryInput").val();
+  console.log("show annSalIn");
   $("#annualSalaryInput").val(""); //clears input after button click
   console.log(firName);
   console.log(lasName);
