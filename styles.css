@@ -12,17 +12,24 @@ h1 {
   text-align: -internal-center;
   width: 100%;
   margin-top: 5px;
-  background-color: springgreen;
+  background-color: rgb(27, 26, 25);
 }
-td{
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid gray;
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid gray;
 }
-th{
-    background-color: paleturquoise;
-    padding: 10px;
+th {
+  background-color: paleturquoise;
+  padding: 10px;
 }
-tr:last-child td{
-    border-bottom: 0px;
+tr:last-child td {
+  border-bottom: 0px;
+}
+p {
+  text-align: right;
+  color: greenyellow;
+  border-top: 2px;
+  border-right: 2px white;
+  border-left: 2px white;
 }
