@@ -24,6 +24,7 @@ const table = $(`
         </tbody>
     </table>
     <p id='Salary-Total'>$0.00 Total Salaries</p>
+    <p id='monthlySalary' class='underBudget'</p>
     `);
     $('body').append(table);
     //set up click handlers
@@ -31,7 +32,7 @@ const table = $(`
     //per class video, this code only runs the actual delete button once
     $("body").on("click", ".deleteEmployee", deleteRow); 
 
-let totalAnnualSalaries = 0;
+let totalAnnualSalary = 0;
 
 function handleEmployeeButton(event) {
   //should fire on the click of 'Submit'
@@ -67,16 +68,37 @@ function handleEmployeeButton(event) {
         <td>${lasName}</td>
         <td>${idIn}</td>
         <td>${titlIn}</td>
-        <td>${annSalIn}</td>
+        <td>$${annSalIn}</td>
         <td><button class="deleteEmployee">Delete</button></td>
     </tr>    
     `);
   //add rows to table
   $("tbody").append(elem);
   //make calculation of annual salaries, had to add a p tag in the table.
-  totalAnnualSalaries += Number(annSalIn) /12;
-  $("#Salary-Total").text(`$ ${totalAnnualSalaries}`);
+  totalAnnualSalary += Number(annSalIn) /12;
+  $("#Salary-Total").text(
+    `$ ${totalAnnualSalary.toLocaleString(undefined, {
+      maximumFractionDigits: 2,
+    })}`
+  );
+  
+  if(totalAnnualSalary > 20000){
+      $("#Salary-Total").css('color', 'red');
+  }
 };//********how do we add the thousand separator??*******
+
+//check monthly salary vs. budget.
+function updateTotalSalary(){
+    const totalMonthlySalary = totalAnnualSalary;
+    if (totalMonthlySalary > 20000) {
+      $("#monthlySalary").addClass("over-budget");
+} //end totalMonthlySalary
+    else {
+      $("#monthlySalary").removeClass("over-budget");
+    }//end else
+    $('#monthlySalary').text(totalMonthlySalary);
+    
+}
 
 function deleteRow(event){
     console.log('in deleteRow');
