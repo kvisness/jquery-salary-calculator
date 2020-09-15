@@ -23,7 +23,7 @@ const table = $(`
         <tbody>
         </tbody>
     </table>
-    <p id='Salary-Total'>0 Total Salaries</p>
+    <p id='Salary-Total'>$0.00 Total Salaries</p>
     `);
     $('body').append(table);
     //set up click handlers
@@ -58,9 +58,10 @@ function handleEmployeeButton(event) {
   console.log(idIn);
   console.log(titlIn);
   console.log(annSalIn);
+  //validation--
 
   //create rows
-  const elem = $(`
+    const elem = $(`
     <tr>
         <td>${firName}</td>
         <td>${lasName}</td>
@@ -73,8 +74,8 @@ function handleEmployeeButton(event) {
   //add rows to table
   $("tbody").append(elem);
   //make calculation of annual salaries, had to add a p tag in the table.
-  totalAnnualSalaries += Number(annSalIn);
-  $("#Salary-Total").text(`$ ${totalAnnualSalaries} Total Salaries`);
+  totalAnnualSalaries += Number(annSalIn) /12;
+  $("#Salary-Total").text(`$ ${totalAnnualSalaries}`);
 };//********how do we add the thousand separator??*******
 
 function deleteRow(event){
